@@ -15,12 +15,22 @@ class PromotionalVideo extends Component
     #[Validate('required','mimeTypes:video/*')]
     public $video;
 
-    public function save(){
+    public function save()
+    {
         $this->validate();
 
-        $this->course->video_path=$this->video->store('courses/promotional-videos');
+        // Si ya hay un video, eliminar el anterior
+        if ($this->course->video_path) {
+            \Storage::delete($this->course->video_path);
+        }
+
+        $this->course->video_path = $this->video->store('courses/promotional-videos');
         $this->course->save();
 
+        // Flash session para el banner
+        session()->flash('message', 'Video promocional actualizado con éxito!');
+
+        return $this->redirectRoute('instructor.courses.video',$this->course, true, true);
 
     }
 
@@ -29,4 +39,3 @@ class PromotionalVideo extends Component
         return view('livewire.instructor.courses.promotional-video');
     }
 }
-

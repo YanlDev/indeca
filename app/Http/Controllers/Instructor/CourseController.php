@@ -50,6 +50,8 @@ class CourseController extends Controller
 
         $course = Course::create($data);
 
+        session()->flash('flash.banner','Curso creado con exito!');
+
         return redirect()->route('instructor.courses.edit', $course);
 
     }
