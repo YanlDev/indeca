@@ -13,6 +13,12 @@
             'icon' => 'fa-solid fa-video',
             'url' => route('instructor.courses.video', $course),
             'active' => request()->routeIs('instructor.courses.video')
+        ],
+        [
+            'name' => 'Metas del curso',
+            'icon' => 'fa-solid fa-list-ul',
+            'url' => route('instructor.courses.goals', $course),
+            'active' => request()->routeIs('instructor.courses.goals')
         ]
     ];
 @endphp

@@ -138,4 +138,9 @@ class CourseController extends Controller
         return view('instructor.courses.video', compact('course'));
     }
 
+    public function goals(Course $course)
+    {
+        return view('instructor.courses.goals', compact('course'));
+    }
+
 }
