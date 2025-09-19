@@ -1,0 +1,20 @@
+@layer components {
+    .btn {
+        @apply whitespace-nowrap rounded-lg bg-gray-900 border border-gray-900 px-4 py-2 text-sm font-medium tracking-wide text-white transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-gray-800 dark:border-gray-800 dark:text-white dark:focus-visible:outline-gray-700;
+    }
+
+    .btm-blue {
+        @apply whitespace-nowrap rounded-lg bg-blue-500 border border-blue-500 px-4 py-2 text-sm font-medium tracking-wide text-white transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-blue-600 dark:border-blue-600 dark:text-white dark:focus-visible:outline-blue-400;
+    }
+
+    .btm-green {
+        @apply whitespace-nowrap rounded-lg bg-green-600 border border-green-600 px-4 py-2 text-sm font-medium tracking-wide text-white transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-green-700 dark:border-green-700 dark:text-white dark:focus-visible:outline-green-500;
+    }
+
+    .btn-red {
+        @apply whitespace-nowrap rounded-lg bg-red-600 border border-red-600 px-4 py-2 text-sm font-medium tracking-wide text-white transition hover:opacity-75 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-red-700 dark:border-red-700 dark:text-white dark:focus-visible:outline-red-500;
+    }
+    .card{
+        @apply bg-white rounded-lg shadow-md p-6;
+    }
+}
