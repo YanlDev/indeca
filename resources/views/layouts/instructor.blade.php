@@ -24,6 +24,8 @@
 
 </head>
 <body class="font-sans antialiased">
+
+{{-- Banner mejorado que maneja todo --}}
 <x-banner/>
 
 <div class="min-h-screen bg-gray-100">
@@ -46,9 +48,13 @@
 </div>
 
 @stack('modals')
+
+{{-- Modal de confirmación global --}}
+<x-confirmation-dialog />
+
 @stack('js')
 
-
 @livewireScripts
+
 </body>
 </html>

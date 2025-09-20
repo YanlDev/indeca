@@ -17,6 +17,45 @@
          message = event.detail.message;
          show = true;
      "
+     {{-- Soporte para mensajes de Livewire --}}
+     x-on:livewire-message.window="
+         style = event.detail.style || 'success';
+         message = event.detail.message;
+         show = true;
+     "
+     {{-- Auto-captura de mensajes flash de sesión --}}
+     x-init="
+         // Verificar mensajes adicionales de la sesión
+     @if(session()->has('message'))
+         style = 'success';
+         message = {{ Js::from(session('message')) }};
+          show = true;
+     @endif
+     @if(session()->has('error'))
+
+         style = 'error';
+         message = {{ Js::from(session('error')) }};
+         show = true;
+
+     @endif
+     @if(session()->has('warning'))
+
+         style = 'warning';
+         message = {{ Js::from(session('warning')) }};
+         show = true;
+
+     @endif
+     @if(session()->has('info'))
+
+         style = 'info';
+         message = {{ Js::from(session('info')) }};
+         show = true;
+
+     @endif
+
+         // Mantener x-init válido aunque no haya mensajes de sesión
+         void(0);
+     "
      :class="{
          'bg-green-50 border-green-200 dark:bg-green-950 dark:border-green-800': style == 'success',
          'bg-red-50 border-red-200 dark:bg-red-950 dark:border-red-800': style == 'danger' || style == 'error',
@@ -24,7 +63,7 @@
          'bg-blue-50 border-blue-200 dark:bg-blue-950 dark:border-blue-800': style == 'info',
          'bg-gray-50 border-gray-200 dark:bg-gray-950 dark:border-gray-800': style != 'success' && style != 'danger' && style != 'error' && style != 'warning' && style != 'info'
      }"
-     class="relative w-full border-b shadow-sm"
+     class="fixed top-0 left-0 right-0 z-50 shadow-lg"
      role="alert"
      :aria-live="style === 'danger' || style === 'error' ? 'assertive' : 'polite'">
 
@@ -108,5 +147,5 @@
     </div>
 
     <!-- Auto-hide después de 5 segundos (opcional) -->
-    <div x-init="setTimeout(() => show = false, 5000)"></div>
+    <div x-init="setTimeout(() => show = false, 2000)"></div>
 </div>

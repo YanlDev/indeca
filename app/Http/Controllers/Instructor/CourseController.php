@@ -50,7 +50,15 @@ class CourseController extends Controller
 
         $course = Course::create($data);
 
-        session()->flash('flash.banner','Curso creado con exito!');
+        /**
+         * 🔄 ACTUALIZADO: Sistema de banners unificado
+         *
+         * ANTES:
+         * session()->flash('flash.banner','Curso creado con éxito!');
+         *
+         * AHORA: Usando el nuevo sistema que funciona con el banner mejorado
+         */
+        session()->flash('message', 'Curso creado con éxito!');
 
         return redirect()->route('instructor.courses.edit', $course);
 
@@ -110,7 +118,15 @@ class CourseController extends Controller
 
         $course->update($data);
 
-        session()->flash('flash.banner','Curso actualizado con exito!');
+        /*
+         * 🔄 ACTUALIZADO: Sistema de banners unificado
+         *
+         * ANTES:
+         * session()->flash('flash.banner','Curso actualizado con exito!');
+         *
+         * AHORA: Usando el nuevo sistema que funciona con el banner mejorado
+         */
+        session()->flash('message', 'Curso actualizado con éxito!');
 
         return redirect()->route('instructor.courses.edit', $course);
 
@@ -140,7 +156,19 @@ class CourseController extends Controller
 
     public function goals(Course $course)
     {
+        if ($course->user_id !== auth()->id()) {
+            abort(403, 'No tienes permiso para acceder a este curso');
+        }
         return view('instructor.courses.goals', compact('course'));
     }
+
+    public function requirements(Course $course)
+    {
+        if ($course->user_id !== auth()->id()) {
+            abort(403, 'No tienes permiso para acceder a este curso');
+        }
+        return view('instructor.courses.requirements', compact('course'));
+    }
+
 
 }
