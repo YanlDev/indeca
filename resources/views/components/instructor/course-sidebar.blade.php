@@ -25,6 +25,12 @@
             'icon' => 'fa-solid fa-list-ul',
             'url' => route('instructor.courses.requirements', $course),
             'active' => request()->routeIs('instructor.courses.requirements')
+        ],
+        [
+            'name' => 'Curricula del curso',
+            'icon' => 'fa-solid fa-list-ol',
+            'url' => route('instructor.courses.curriculum', $course),
+            'active' => request()->routeIs('instructor.courses.curriculum')
         ]
     ];
 @endphp

@@ -7,7 +7,7 @@
     <!-- Header Section -->
     <header class="mb-6">
         <h2 class="text-2xl font-semibold text-on-surface dark:text-on-surface-dark">
-            Video promocional
+            Video Promocional
         </h2>
         <hr class="mt-2 border-outline dark:border-outline-dark">
     </header>

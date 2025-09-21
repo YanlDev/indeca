@@ -1,7 +1,7 @@
 <section>
     <header class="mb-6">
         <h2 class="text-2xl font-semibold text-on-surface dark:text-on-surface-dark">
-            Metas del Curso
+            Requerimientos del Curso
         </h2>
         <hr class="mt-2 border-outline dark:border-outline-dark">
     </header>
@@ -22,14 +22,13 @@
                                 placeholder="Nombre del requerimiento"/>
                         </div>
 
-                        <!-- Botón eliminar -->
                         <!-- Botones de acción -->
                         <div class="flex items-center gap-2">
                             <!-- Botón eliminar -->
                             <button
                                 type="button"
-                                @click="$dispatch('open-confirmation', { title: '¿Eliminar meta?', message: '¿Estás seguro...', action: () => $wire.destroy({{$requierement['id']}}), options: { confirmText: 'Eliminar', cancelText: 'Cancelar', confirmColor: 'red', icon: 'fas fa-trash-alt' } })"
-                                class="flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-md transition-colors duration-200 dark:text-red-400 dark:hover:text-red-300 dark:hover:bg-red-950"
+                                @click="$dispatch('open-confirmation', { title: '¿Eliminar meta?', message: '¿Estás seguro...?', action: () => $wire.destroy({{$requierement['id']}}), options: { confirmText: 'Eliminar', cancelText: 'Cancelar', confirmColor: 'red', icon: 'fas fa-trash-alt' } })"
+                                class="flex-1 sm:flex-none inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-radius hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800/30 dark:hover:bg-red-900/30"
                                 title="Eliminar meta">
                                 <i class="fas fa-trash-alt text-sm" aria-hidden="true"></i>
                             </button>

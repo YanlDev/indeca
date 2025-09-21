@@ -16,3 +16,6 @@ Route::get('courses/{course}/goals', [CourseController::class, 'goals'])
 
 Route::get('courses/{course}/requirements', [CourseController::class, 'requirements'])
     ->name('courses.requirements');
+
+Route::get('courses/{course}/curriculum', [CourseController::class, 'curriculum'])
+    ->name('courses.curriculum');

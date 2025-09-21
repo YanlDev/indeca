@@ -170,5 +170,13 @@ class CourseController extends Controller
         return view('instructor.courses.requirements', compact('course'));
     }
 
+    public function  curriculum(Course $course)
+    {
+        if ($course->user_id !== auth()->id()) {
+            abort(403, 'No tienes permiso para acceder a este curso');
+        }
+        return view('instructor.courses.curriculum', compact('course'));
+    }
+
 
 }
